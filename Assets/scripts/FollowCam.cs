@@ -26,12 +26,27 @@ public class FollowCam : MonoBehaviour {
 
 	private void FixedUpdate () 
     {
+		Vector3 dest;
+
 		if (pointOfInterest == null)
 		{
-			return;
+			dest = Vector3.zero;			
+		}
+		else
+		{
+			dest = pointOfInterest.transform.position;
+
+			if (pointOfInterest.CompareTag("projectile"))
+			{
+				if (pointOfInterest.GetComponent<Rigidbody> ().IsSleeping ())
+				{
+					Debug.Log ("Sleeping!");
+					pointOfInterest = null;
+					return;
+				}
+			}
 		}
 
-		Vector3 dest = pointOfInterest.transform.position;
 		dest.x = Mathf.Max (minXY.x, dest.x);
 		dest.y = Mathf.Max (minXY.y, dest.y);
 		dest = Vector3.Lerp (transform.position, dest, easing);
