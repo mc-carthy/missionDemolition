@@ -11,7 +11,7 @@ public class Slingshot : MonoBehaviour {
 	private GameObject projectile;
 	private Rigidbody projRb;
 	private Vector3 launchPointPos;
-	private float velMult = 4f;
+	private float velMult = 10f;
 	private bool isAiming;
 
 	private void Awake ()
@@ -54,6 +54,7 @@ public class Slingshot : MonoBehaviour {
 			{
 				projRb.isKinematic = false;
 				projRb.velocity = -mouseDelta * velMult;
+				FollowCam.Instance.PointOfInterest = projectile;
 				projectile = null;
 			}
 			else
