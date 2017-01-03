@@ -40,7 +40,6 @@ public class FollowCam : MonoBehaviour {
 			{
 				if (pointOfInterest.GetComponent<Rigidbody> ().IsSleeping ())
 				{
-					Debug.Log ("Sleeping!");
 					pointOfInterest = null;
 					return;
 				}

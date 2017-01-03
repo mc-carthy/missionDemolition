@@ -4,10 +4,17 @@
 [RequireComponent (typeof (SphereCollider))]
 public class Slingshot : MonoBehaviour {
 
+	static public Slingshot Instance;
+
+	private GameObject launchPoint;
+	public GameObject LaunchPoint
+	{
+		get {return launchPoint; }
+	}
+	
 	[SerializeField]
 	private GameObject projectilePrefab;
 
-	private GameObject launchPoint;
 	private GameObject projectile;
 	private Rigidbody projRb;
 	private Vector3 launchPointPos;
@@ -16,6 +23,7 @@ public class Slingshot : MonoBehaviour {
 
 	private void Awake ()
 	{
+		MakeSingleton ();
 		Transform launchPointTrans = transform.Find("launchPoint");
 		launchPoint = launchPointTrans.gameObject;
 		launchPoint.SetActive (false);
@@ -81,5 +89,18 @@ public class Slingshot : MonoBehaviour {
 		projectile.transform.position = launchPointPos;
 		projRb = projectile.GetComponent<Rigidbody> ();
 		projRb.isKinematic = true;
+	}
+
+	private void MakeSingleton ()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad (gameObject);
+		} 
+		else
+		{
+			Destroy (gameObject);
+		}
 	}
 }
