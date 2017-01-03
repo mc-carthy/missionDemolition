@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4425353948833868}
+  - component: {fileID: 122940469610872460}
   m_Layer: 0
   m_Name: launchPoint
   m_TagString: Untagged
@@ -86,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4954409346061294}
   - component: {fileID: 135195101515810466}
+  - component: {fileID: 114249351963786434}
   m_Layer: 0
   m_Name: slingshot
   m_TagString: Untagged
@@ -276,6 +278,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238893125884252}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114249351963786434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788461553234944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efbc78e2ad294d408696c59167ff4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1323281503147820, guid: c20ce55a9d731411f9ae78ab58d381ef,
+    type: 2}
+  isAiming: 0
+--- !u!122 &122940469610872460
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205604246807466}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4290756543
+  m_Size: 1
 --- !u!135 &135195101515810466
 SphereCollider:
   m_ObjectHideFlags: 1
