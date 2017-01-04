@@ -3,13 +3,13 @@
 [AddComponentMenu ("Vistage/Goal")]
 public class Goal : MonoBehaviour {
 
-	static public bool isGoalMet;
+	static public bool IsGoalMet;
 
 	private void OnTriggerEnter (Collider other)
 	{
 		if (other.gameObject.CompareTag ("projectile"))
 		{
-			isGoalMet = true;
+			IsGoalMet = true;
 
 			Renderer ren = GetComponent<Renderer> ();
 			Color c = ren.material.color;
